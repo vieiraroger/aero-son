@@ -1,30 +1,33 @@
-<div class="border-solid border-white border-4 rounded-md" style="width: 605px;" >
+<div class="border-solid border-white border-4 rounded-md" style="width: 605px; border-radius: 605px; background-color: #008500;" >
 
-  <div class="relative" style="width: 600px; height: 600px;">
+  <div class="relative" style="width: 600px; height: 600px; ">
     <div class="absolute grid grid-cols-10 w-full text-center" style="width: 600px;">
       <ng-container *ngFor="let index of array">
-        <div style="width: 60px; height: 60px; border: 1px solid white" class=" opacity-25"></div>
-        <div style="width: 60px; height: 60px; border: 1px solid white;" class=" opacity-25"></div>
-        <div style="width: 60px; height: 60px; border: 1px solid white;" class="  opacity-25"></div>
-        <div style="width: 60px; height: 60px; border: 1px solid white;" class="  opacity-25"></div>
-        <div style="width: 60px; height: 60px; border: 1px solid white;" class="  opacity-25"></div>
-        <div style="width: 60px; height: 60px; border: 1px solid white;" class="  opacity-25"></div>
-        <div style="width: 60px; height: 60px; border: 1px solid white;" class="  opacity-25"></div>
-        <div style="width: 60px; height: 60px; border: 1px solid white;" class="  opacity-25"></div>
-        <div style="width: 60px; height: 60px; border: 1px solid white;" class="  opacity-25"></div>
-        <div style="width: 60px; height: 60px; border: 1px solid white;" class="  opacity-25"></div>
+        <div style="width: 60px; height: 60px; border: 1px solid black" class=" opacity-25"></div>
+        <div style="width: 60px; height: 60px; border: 1px solid black;" class=" opacity-25"></div>
+        <div style="width: 60px; height: 60px; border: 1px solid black;" class="  opacity-25"></div>
+        <div style="width: 60px; height: 60px; border: 1px solid black;" class="  opacity-25"></div>
+        <div style="width: 60px; height: 60px; border: 1px solid black;" class="  opacity-25"></div>
+        <div style="width: 60px; height: 60px; border: 1px solid black;" class="  opacity-25"></div>
+        <div style="width: 60px; height: 60px; border: 1px solid black;" class="  opacity-25"></div>
+        <div style="width: 60px; height: 60px; border: 1px solid black;" class="  opacity-25"></div>
+        <div style="width: 60px; height: 60px; border: 1px solid black;" class="  opacity-25"></div>
+        <div style="width: 60px; height: 60px; border: 1px solid black;" class="  opacity-25"></div>
       </ng-container>
     </div>
-    <div style="height: 600px; left: 299px;" class="absolute top-0 rotate-center">
+    <!-- <div style="height: 600px; left: 299px;" class="absolute top-0 rotate-center">
       <div class="tail" style="height: 300px; width: 4px; left: 299px; background-color: #4299e1;">
-
       </div>
-    </div>
-    <div style="height: 600px; width: 2px; left: 299px;" class="absolute top-0 bg-white"></div>
-    <div style="width: 600px; height: 2px; top: 299px; left: 0px;" class="absolute top-0 bg-white"></div>
+    </div> -->
+    <div style="height: 600px; width: 2px; left: 299px;" class="absolute top-0 bg-black"></div>
+    <div style="width: 600px; height: 2px; top: 299px; left: 0px;" class="absolute top-0 bg-black"></div>
+
+    <div style="width: 10px; height: 10px; top: 295px; left: 295px; border-radius: 100%;" class="absolute top-0 bg-red-700"></div>
 
     <ng-container *ngFor="let plane of planes">
-      <img style="position: absolute; top: {{fixY(plane.y)}}px; left: {{fixX(plane.x)}}px; width: 30px; height: 30px;  transform: rotate(-{{plane.angle}}deg);" src="../../assets/airplane.png"/>
+      <div style="position: absolute; top: {{fixY(plane.y)}}px; left: {{fixX(plane.x)}}px;" class="ping">
+        <img  style=" width: 30px; height: 30px;  transform: rotate(-{{plane?.angle}}deg);" src="../../assets/airplane.png"/>
+      </div>
     </ng-container>
   </div>
 
