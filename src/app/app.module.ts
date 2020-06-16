@@ -11,6 +11,7 @@ import { RadarComponent } from './radar/radar.component';
 import { DataGridComponent } from './data-grid/data-grid.component';
 import { ReportComponent } from './report/report.component';
 import { ServicesModule } from './services/services.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ServicesModule } from './services/services.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ServicesModule
+    ServicesModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

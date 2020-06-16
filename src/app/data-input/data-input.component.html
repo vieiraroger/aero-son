@@ -5,7 +5,7 @@
       <label class="text-white">X: </label>
       <input
         class="absolute right-0 w-16 shadow appearance-none border rounded w-fulltext-gray-700 focus:outline-none focus:shadow-outline"
-        type="number">
+        type="number" [(ngModel)]="x" required>
     </div>
 
 
@@ -13,7 +13,7 @@
       <label class="text-white">Y: </label>
       <input
         class="absolute right-0 w-16 shadow appearance-none border rounded w-fulltext-gray-700 focus:outline-none focus:shadow-outline"
-        type="number">
+        type="number" [(ngModel)]="y" required>
     </div>
 
 
@@ -21,7 +21,7 @@
       <label class="text-white">Raio: </label>
       <input
         class=" absolute right-0 w-16 shadow appearance-none border rounded w-fulltext-gray-700 focus:outline-none focus:shadow-outline"
-        type="number">
+        type="number" [(ngModel)]="radius" (keypress)='toCartesian()'>
     </div>
 
     <div class="relative">
@@ -29,7 +29,7 @@
 
       <input
         class="absolute right-0 w-16 shadow appearance-none border rounded w-fulltext-gray-700 focus:outline-none focus:shadow-outline"
-        type="number">
+        type="number" [(ngModel)]="angle" (keypress)='toCartesian()'>
     </div>
 
     <div class="relative">
@@ -38,7 +38,7 @@
 
       <input
         class=" absolute right-0 w-16 shadow appearance-none border rounded w-fulltext-gray-700 focus:outline-none focus:shadow-outline"
-        type="number">
+        type="number" [(ngModel)]="velocity">
 
 
     </div>
@@ -48,12 +48,12 @@
 
       <input
         class="absolute right-0 w-16 shadow appearance-none border rounded w-fulltext-gray-700 focus:outline-none focus:shadow-outline"
-        type="number">
+        type="number" [(ngModel)]="direction">
 
     </div>
   </div>
   <div class="">
-    <button class="w-full  bg-blue-500 hover:bg-blue-700 text-white font-bold rounded">
+    <button class="w-full  bg-blue-500 hover:bg-blue-700 text-white font-bold rounded" (click)="insertAirplane()">
       Inserir
     </button>
   </div>

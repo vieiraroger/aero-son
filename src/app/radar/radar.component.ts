@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PositionPlanesService } from '../services/position-planes.service';
 
 @Component({
   selector: 'app-radar',
@@ -8,16 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class RadarComponent implements OnInit {
   public array = [0,1,2,3,4,5,6,7,8,9];
 
-  public planes = [
-    {
-      x: 3,
-      y: 3,
-      angle: 90
-    }
-  ]
-
-  constructor() { }
-
+  constructor(private airplanes: PositionPlanesService) { }
+  
+  public planes = this.airplanes.getPlanes();
+  
   ngOnInit(): void {
   }
 

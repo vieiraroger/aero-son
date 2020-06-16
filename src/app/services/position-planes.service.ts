@@ -34,7 +34,9 @@ export class PositionPlanesService {
   }
 
   public addPlane(plane) {
+    plane.id = this.planes.length + 1;
     this.planes.push(plane);
+    console.log(this.planes);
   }
 
   public editPlane(newPlane) {
