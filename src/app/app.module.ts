@@ -10,6 +10,7 @@ import { TrackingFunctionComponent } from './tracking-function/tracking-function
 import { RadarComponent } from './radar/radar.component';
 import { DataGridComponent } from './data-grid/data-grid.component';
 import { ReportComponent } from './report/report.component';
+import { ServicesModule } from './services/services.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ReportComponent } from './report/report.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServicesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
