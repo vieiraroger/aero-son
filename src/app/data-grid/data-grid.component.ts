@@ -24,6 +24,7 @@ export class DataGridComponent implements OnInit {
   checkPlane(plane) {
     return this.positionPlanes.checkIsSelected(plane);
   }
+  
 
   planes() {
     return this.positionPlanes.getPlanes();

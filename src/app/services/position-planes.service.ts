@@ -8,7 +8,7 @@ export class PositionPlanesService {
 
   private planes = [
     {
-      id: 1, 
+      id:  1, 
       x: 1, 
       y: 1, 
       radius: 0,
