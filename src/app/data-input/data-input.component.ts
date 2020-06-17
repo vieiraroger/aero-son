@@ -26,7 +26,7 @@ export class DataInputComponent implements OnInit {
       return;      
     }
 
-    this.direction = this.direction % 360;    
+    this.direction = this.calc.to_360_scale(this.direction);    
 
     let plane = 
       {

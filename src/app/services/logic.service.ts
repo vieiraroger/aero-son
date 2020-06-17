@@ -116,5 +116,9 @@ export class LogicService {
       return Math.sqrt(x_dif * x_dif + y_dif * y_dif)
   }
 
+  to_360_scale(angle){
+    return angle % 360;
+  }
+
 
 }
