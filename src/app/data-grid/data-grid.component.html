@@ -19,12 +19,12 @@
           <div class="col-span-1">
             <img class="mx-auto" src="../../assets/airplane.png" />
           </div>
-          <div class="col-span-1 ">{{plane.x}}</div>
-          <div class="col-span-1 ">{{plane.y}}</div>
-          <div class="col-span-2 ">{{plane.radius}}</div>
-          <div class="col-span-2 ">{{plane.angle}}</div>
-          <div class="col-span-3 ">{{plane.velocity}}</div>
-          <div class="col-span-2 ">{{plane.direction}}</div>
+          <div class="col-span-1 ">{{plane.x | number: '.0-2'}}</div>
+          <div class="col-span-1 ">{{plane.y | number: '.0-2'}}</div>
+          <div class="col-span-2 ">{{plane.radius | number: '.0-2'}}</div>
+          <div class="col-span-2 ">{{plane.angle | number: '.0-2'}}</div>
+          <div class="col-span-3 ">{{plane.velocity | number: '.0-2'}}</div>
+          <div class="col-span-2 ">{{plane.direction | number: '.0-2'}}</div>
         </div>
       </ng-container>
       <ng-container *ngIf="checkPlane(plane)">
@@ -33,12 +33,12 @@
           <div class="col-span-1">
             <img class="mx-auto" src="../../assets/airplane.png" />
           </div>
-          <div class="col-span-1 ">{{plane.x}}</div>
-          <div class="col-span-1 ">{{plane.y}}</div>
-          <div class="col-span-2 ">{{plane.radius}}</div>
-          <div class="col-span-2 ">{{plane.angle}}</div>
-          <div class="col-span-3 ">{{plane.velocity}}</div>
-          <div class="col-span-2 ">{{plane.direction}}</div>
+          <div class="col-span-1 ">{{plane.x | number: '.0-2'}}</div>
+          <div class="col-span-1 ">{{plane.y | number: '.0-2'}}</div>
+          <div class="col-span-2 ">{{plane.radius | number: '.0-2'}}</div>
+          <div class="col-span-2 ">{{plane.angle | number: '.0-2'}}</div>
+          <div class="col-span-3 ">{{plane.velocity | number: '.0-2'}}</div>
+          <div class="col-span-2 ">{{plane.direction | number: '.0-2'}}</div>
         </div>
       </ng-container>
     </ng-container>
