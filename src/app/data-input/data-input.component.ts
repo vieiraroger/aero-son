@@ -26,16 +26,30 @@ export class DataInputComponent implements OnInit {
       return;      
     }
 
+    while (360 < this.direction){
+      this.direction = this.direction - 360;
+    }
+
     let plane = 
       {
         id: 0, 
-        x: this.x, 
-        y: this.y, 
-        radius: this.radius,
-        angle: this.angle,        
-        velocity: this.velocity,
-        direction: this.direction
+        x: 0, 
+        y: 0, 
+        radius: 0,
+        angle: 0,        
+        velocity: 0,
+        direction: 0
       };
+
+    plane.x = this.x == null ? 0 : this.x;
+    plane.y = this.y == null ? 0 : this.y;
+    plane.radius = this.radius == null ? 0 : this.radius;
+    plane.angle = this.angle == null ? 0 : this.angle;
+    plane.direction = this.direction == null ? 0 : this.direction;
+    plane.velocity = this.velocity == null ? 0 : this.velocity;
+
+    
+
     
     this.radar.addPlane(plane);
 
