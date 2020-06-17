@@ -1,20 +1,53 @@
-<div class="border-solid border-white border-4 rounded-md h-full ">
-  <button>aswdfeqwedef</button>
-  <button>aswdfeqwedef</button>
-  <button>aswdfeqwedef</button>
-  <button>aswdfeqwedef</button>
-  <button>aswdfeqwedef</button>
-  <button>aswdfeqwedef</button>
-  <button>aswdfeqwedef</button>
-  <button>aswdfeqwedef</button>
-  <button>aswdfeqwedef</button>
-  <button>aswdfeqwedef</button>
-  <button>aswdfeqwedef</button>
-  <button>aswdfeqwedef</button>
-  <button>aswdfeqwedef</button>
-  <button>aswdfeqwedef</button>
-  <button>aswdfeqwedef</button>
-  <button>aswdfeqwedef</button>
-  <button>aswdfeqwedef</button>
-  <button>aswdfeqwedef</button>
+<div class="border-solid border-white border-4 rounded-md h-full p-2">
+  <div class="grid grid-cols-12 col-gap-4  p-2 text-white text-center font-bold">
+
+
+    <div class="col-span-12 grid grid-cols-12 col-gap-4 p-1 border-2 border-white bg-white text-gray-900">
+      <div class="col-span-1">#</div>
+      <div class="col-span-1">X</div>
+      <div class="col-span-1">Y</div>
+      <div class="col-span-2">Raio</div>
+      <div class="col-span-2">Ângulo</div>
+      <div class="col-span-3">Velocidade</div>
+      <div class="col-span-2">Direção</div>
+    </div>
+
+    <ng-container *ngFor="let plane of planes()">
+      <ng-container *ngIf="!checkPlane(plane)">
+        <div (click)="selectPlane(plane)"
+          class="col-span-12 grid grid-cols-12 col-gap-4 p-1 cursor-pointer border-2 border-white hover:bg-white hover:text-gray-900">
+          <div class="col-span-1">
+            <img class="mx-auto" src="../../assets/airplane.png" />
+          </div>
+          <div class="col-span-1 ">{{plane.x}}</div>
+          <div class="col-span-1 ">{{plane.y}}</div>
+          <div class="col-span-2 ">{{plane.x}}</div>
+          <div class="col-span-2 ">{{plane.angle}}</div>
+          <div class="col-span-3 ">1</div>
+          <div class="col-span-2 ">1</div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="checkPlane(plane)">
+        <div (click)="unselectPlane(plane)"
+          class="col-span-12 grid grid-cols-12 col-gap-4  p-1 cursor-pointer border-2 border-white bg-blue-600">
+          <div class="col-span-1">
+            <img class="mx-auto" src="../../assets/airplane.png" />
+          </div>
+          <div class="col-span-1 ">{{plane.x}}</div>
+          <div class="col-span-1 ">{{plane.y}}</div>
+          <div class="col-span-2 ">{{plane.x}}</div>
+          <div class="col-span-2 ">{{plane.angle}}</div>
+          <div class="col-span-3 ">1</div>
+          <div class="col-span-2 ">1</div>
+        </div>
+      </ng-container>
+    </ng-container>
+
+
+
+  </div>
+
+  <div class="grid grid-col-7 grid-flow-col gap-4 p-2 text-white text-center">
+
+  </div>
 </div>

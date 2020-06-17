@@ -9,11 +9,15 @@ import { PositionPlanesService } from '../services/position-planes.service';
 export class RadarComponent implements OnInit {
   public array = [0,1,2,3,4,5,6,7,8,9];
 
-  constructor(private airplanes: PositionPlanesService) { }
-  
-  public planes = this.airplanes.getPlanes();
-  
+  constructor(
+    private positionPlane: PositionPlanesService
+  ) { }
+
   ngOnInit(): void {
+  }
+
+  planes() {
+    return this.positionPlane.getPlanes();
   }
 
   fixX(x) {
@@ -22,6 +26,18 @@ export class RadarComponent implements OnInit {
 
   fixY(y) {
     return (y * -60) + 299 - 15;
+  }
+
+  selectPlane(plane) {
+    if (this.positionPlane.checkIsSelected(plane)) {
+      this.positionPlane.unselectPlane(plane);
+    } else {
+      this.positionPlane.selectPlane(plane);
+    }
+  }
+
+  checkPlane(plane) {
+    return this.positionPlane.checkIsSelected(plane);
   }
 
 

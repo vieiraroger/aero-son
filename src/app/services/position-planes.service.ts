@@ -13,6 +13,20 @@ export class PositionPlanesService {
       y: 1,
       angle: 90,
       velocity: 100
+    },
+    {
+      id: 2,
+      x: 2,
+      y: 2,
+      angle: 90,
+      velocity: 100
+    },
+    {
+      id: 3,
+      x: 3,
+      y: 3,
+      angle: 0,
+      velocity: 100
     }
   ];
 
@@ -59,6 +73,14 @@ export class PositionPlanesService {
 
   public clearSelectedPlanes() {
     this.selectedPlanes = [];
+  }
+
+  public checkIsSelected(planeToCheck) {
+    if (this.selectedPlanes.find(plane => planeToCheck.id == plane.id)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 

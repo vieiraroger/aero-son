@@ -1,4 +1,4 @@
-<div class="border-solid border-white border-4 rounded-md" style="width: 605px; border-radius: 605px; background-color: #008500;" >
+<div class="border-solid border-gray-400 border-8 rounded-md" style="width: 605px; border-radius: 605px; background-color: #008500;" >
 
   <div class="relative" style="width: 600px; height: 600px; ">
     <div class="absolute grid grid-cols-10 w-full text-center" style="width: 600px;">
@@ -19,14 +19,19 @@
       <div class="tail" style="height: 300px; width: 4px; left: 299px; background-color: #4299e1;">
       </div>
     </div> -->
+    <!-- <div class="absolute top-0">
+      <img src="../../assets/radar.png"/>
+    </div> -->
     <div style="height: 600px; width: 2px; left: 299px;" class="absolute top-0 bg-black"></div>
     <div style="width: 600px; height: 2px; top: 299px; left: 0px;" class="absolute top-0 bg-black"></div>
 
     <div style="width: 10px; height: 10px; top: 295px; left: 295px; border-radius: 100%;" class="absolute top-0 bg-red-700"></div>
 
-    <ng-container *ngFor="let plane of planes">
-      <div style="position: absolute; top: {{fixY(plane.y)}}px; left: {{fixX(plane.x)}}px;" class="ping">
-        <img  style=" width: 30px; height: 30px;  transform: rotate(-{{plane?.angle}}deg);" src="../../assets/airplane.png"/>
+    <ng-container *ngFor="let plane of planes()">
+
+      <div  style="position: absolute; top: {{fixY(plane.y)}}px; left: {{fixX(plane.x)}}px;" class="ping">
+        <img *ngIf="!checkPlane(plane)" (click)="selectPlane(plane)" class="cursor-pointer "  style=" width: 30px; height: 30px;  transform: rotate(-{{plane?.angle}}deg);" src="../../assets/airplane.png"/>
+        <img *ngIf="checkPlane(plane)" (click)="selectPlane(plane)" class="cursor-pointer border-white border-2 rounded-lg"  style=" width: 30px; height: 30px;  transform: rotate(-{{plane?.angle}}deg);" src="../../assets/airplane.png"/>
       </div>
     </ng-container>
   </div>
