@@ -31,8 +31,10 @@ export class DataInputComponent implements OnInit {
         id: 0, 
         x: this.x, 
         y: this.y, 
-        angle: this.direction, 
-        velocity: this.velocity
+        radius: this.radius,
+        angle: this.angle,        
+        velocity: this.velocity,
+        direction: this.direction
       };
     
     this.radar.addPlane(plane);

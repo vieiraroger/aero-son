@@ -21,10 +21,10 @@
           </div>
           <div class="col-span-1 ">{{plane.x}}</div>
           <div class="col-span-1 ">{{plane.y}}</div>
-          <div class="col-span-2 ">{{plane.x}}</div>
+          <div class="col-span-2 ">{{plane.radius}}</div>
           <div class="col-span-2 ">{{plane.angle}}</div>
-          <div class="col-span-3 ">1</div>
-          <div class="col-span-2 ">1</div>
+          <div class="col-span-3 ">{{plane.velocity}}</div>
+          <div class="col-span-2 ">{{plane.direction}}</div>
         </div>
       </ng-container>
       <ng-container *ngIf="checkPlane(plane)">
@@ -35,10 +35,10 @@
           </div>
           <div class="col-span-1 ">{{plane.x}}</div>
           <div class="col-span-1 ">{{plane.y}}</div>
-          <div class="col-span-2 ">{{plane.x}}</div>
+          <div class="col-span-2 ">{{plane.radius}}</div>
           <div class="col-span-2 ">{{plane.angle}}</div>
-          <div class="col-span-3 ">1</div>
-          <div class="col-span-2 ">1</div>
+          <div class="col-span-3 ">{{plane.velocity}}</div>
+          <div class="col-span-2 ">{{plane.direction}}</div>
         </div>
       </ng-container>
     </ng-container>

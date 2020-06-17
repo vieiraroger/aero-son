@@ -30,8 +30,8 @@
     <ng-container *ngFor="let plane of planes()">
 
       <div  style="position: absolute; top: {{fixY(plane.y)}}px; left: {{fixX(plane.x)}}px;" class="ping">
-        <img *ngIf="!checkPlane(plane)" (click)="selectPlane(plane)" class="cursor-pointer "  style=" width: 30px; height: 30px;  transform: rotate(-{{plane?.angle}}deg);" src="../../assets/airplane.png"/>
-        <img *ngIf="checkPlane(plane)" (click)="selectPlane(plane)" class="cursor-pointer border-white border-2 rounded-lg"  style=" width: 30px; height: 30px;  transform: rotate(-{{plane?.angle}}deg);" src="../../assets/airplane.png"/>
+        <img *ngIf="!checkPlane(plane)" (click)="selectPlane(plane)" class="cursor-pointer "  style=" width: 30px; height: 30px;  transform: rotate(-{{plane?.direction}}deg);" src="../../assets/airplane.png"/>
+        <img *ngIf="checkPlane(plane)" (click)="selectPlane(plane)" class="cursor-pointer border-white border-2 rounded-lg"  style=" width: 30px; height: 30px;  transform: rotate(-{{plane?.direction}}deg);" src="../../assets/airplane.png"/>
       </div>
     </ng-container>
   </div>

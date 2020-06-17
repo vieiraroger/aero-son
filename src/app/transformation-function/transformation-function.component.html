@@ -6,17 +6,17 @@
         <label class="text-white">X: </label>
         <input
           class=" w-8/12  shadow appearance-none border rounded w-fulltext-gray-700 focus:outline-none focus:shadow-outline"
-          type="number">
+          type="number" [(ngModel)]="xMove">
       </div>
 
       <div class="">
         <label class="text-white">Y: </label>
         <input
           class=" w-8/12 shadow appearance-none border rounded w-fulltext-gray-700 focus:outline-none focus:shadow-outline"
-          type="number">
+          type="number" [(ngModel)]="yMove">
       </div>
       <div class="col-span-2">
-        <button class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold rounded">
+        <button class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold rounded" (click)='translate()'>
           Transladar
         </button>
       </div>
