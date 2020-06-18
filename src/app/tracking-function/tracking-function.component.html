@@ -6,9 +6,9 @@
         <label class="text-white">Distância Mín: </label>
         <input
           class="w-16 shadow appearance-none border rounded w-fulltext-gray-700 focus:outline-none focus:shadow-outline"
-          type="number">
+          type="number" [(ngModel)]="distan_airport">
       </div>
-      <button class="mx-auto mt-2 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold rounded">
+      <button class="mx-auto mt-2 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold rounded" (click)="airpotDistance()">
         Aviões próximos ao Aeroporto
       </button>
     </div>
@@ -20,9 +20,9 @@
         <label class="text-white">Distância Mín: </label>
         <input
           class="w-16 shadow appearance-none border rounded w-fulltext-gray-700 focus:outline-none focus:shadow-outline"
-          type="number">
+          type="number" [(ngModel)]="distan_nearly">
       </div>
-      <button class="mx-auto mt-2 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold rounded">
+      <button class="mx-auto mt-2 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold rounded" (click)="nearlyPlanes()">
         Aviões Próximos
       </button>
     </div>
@@ -34,9 +34,9 @@
         <label class="text-white">Tempo Mín.: </label>
         <input
           class="w-16 shadow appearance-none border rounded w-fulltext-gray-700 focus:outline-none focus:shadow-outline"
-          type="number">
+          type="number" [(ngModel)]="time_to_colision">
       </div>
-      <button class="mx-auto mt-2 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold rounded">
+      <button class="mx-auto mt-2 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold rounded" (click)="colisionTime()">
         Em rota de colisão
       </button>
     </div>

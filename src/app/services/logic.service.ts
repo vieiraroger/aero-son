@@ -86,7 +86,7 @@ export class LogicService {
     let closest_planes = []
 
     for(let i=0;i<planes.length;i++) {
-      for(let j=i + 1;i<planes.length;j++) {
+      for(let j=i + 1;j<planes.length;j++) {
         let plane_i = planes[i]
         let plane_j = planes[j]
         let distance = this.distance_bettewen_two_points(plane_i.x, plane_i.y, plane_j.x, plane_j.y)
