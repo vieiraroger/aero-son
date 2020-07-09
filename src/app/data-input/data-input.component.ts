@@ -13,7 +13,7 @@ export class DataInputComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   x: number;
   y: number;
   radius: number;
@@ -22,19 +22,19 @@ export class DataInputComponent implements OnInit {
   direction: number;
 
   insertAirplane() {
-    if (!this.x || !this.y){
-      return;      
+    if (this.x == null || this.y == null){
+      return;
     }
 
-    this.direction = this.calc.to_360_scale(this.direction);    
+    this.direction = this.calc.to_360_scale(this.direction);
 
-    let plane = 
+    let plane =
       {
-        id: 0, 
-        x: 0, 
-        y: 0, 
+        id: 0,
+        x: 0,
+        y: 0,
         radius: 0,
-        angle: 0,        
+        angle: 0,
         velocity: 0,
         direction: 0
       };
@@ -46,9 +46,9 @@ export class DataInputComponent implements OnInit {
     plane.direction = this.direction == null ? 0 : this.direction;
     plane.velocity = this.velocity == null ? 0 : this.velocity;
 
-    
 
-    
+
+
     this.radar.addPlane(plane);
 
     this.x = null;
@@ -57,12 +57,12 @@ export class DataInputComponent implements OnInit {
     this.angle = null;
     this.velocity = null;
     this.direction = null;
-    
+
 
   }
 
   toCartesian (){
-    if(!this.radius || !this.angle){
+    if(this.radius == null || this.angle == null){
       return;
     }
 
