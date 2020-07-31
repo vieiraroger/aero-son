@@ -8,11 +8,11 @@ export class PositionPlanesService {
 
   private planes = [
     {
-      id:  1, 
-      x: 1, 
-      y: 1, 
+      id:  1,
+      x: 1,
+      y: 1,
       radius: 0,
-      angle: 0,        
+      angle: 0,
       velocity: 10,
       direction: 90
     },
@@ -21,7 +21,7 @@ export class PositionPlanesService {
       x: 2,
       y: 2,
       radius: 0,
-      angle: 0,        
+      angle: 0,
       velocity: 100,
       direction: 90
     },
@@ -30,7 +30,7 @@ export class PositionPlanesService {
       x: 3,
       y: 3,
       radius: 0,
-      angle: 0,        
+      angle: 0,
       velocity: 110,
       direction: 180
     }
@@ -38,15 +38,17 @@ export class PositionPlanesService {
 
   private selectedPlanes = [
     {
-      id: 1, 
-      x: 1, 
-      y: 1, 
+      id: 1,
+      x: 1,
+      y: 1,
       radius: 0,
-      angle: 0,        
+      angle: 0,
       velocity: 10,
       direction: 90
     }
   ];
+
+  private radarState = 'initial';
 
 
   constructor() { }
@@ -69,9 +71,14 @@ export class PositionPlanesService {
     this.selectedPlanes.push(plane);
   }
 
-  public unselectPlane(planeToRemove) {
-    let planeToRemoveIndex = this.selectedPlanes.findIndex(plane => plane.id == planeToRemove.id);
-    this.selectedPlanes.splice(planeToRemoveIndex, 1);
+  public deletePlane(planeToDelete) {
+    let planeToRemoveIndex = this.planes.findIndex((plane) => plane.id == planeToDelete.id);
+    this.planes.splice(planeToRemoveIndex, 1);
+  }
+
+  public unselectPlane(planeToUnSelect) {
+    let planeToUnSelectIndex = this.selectedPlanes.findIndex(plane => plane.id == planeToUnSelect.id);
+    this.selectedPlanes.splice(planeToUnSelectIndex, 1);
   }
 
   public getSelectedPlanes() {
@@ -90,6 +97,13 @@ export class PositionPlanesService {
     }
   }
 
+  public getRadarState() {
+    return this.radarState;
+  }
+
+  public setRadarState(state) {
+    this.radarState = state;
+  }
 
 
 }

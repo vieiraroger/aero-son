@@ -17,8 +17,8 @@
 
     <div class="row-span-4 col-span-6">
 
-      <div class="w-20 h-4 bg-gray-400 mx-auto rounded-lg"></div>
-      <div class="w-10 h-2 bg-gray-400 mx-auto "></div>
+      <div [@pressButton]=getState() (click)="changeState()" class="w-20 h-4 bg-gray-400 mx-auto rounded-lg cursor-pointer"></div>
+      <div  class="w-10 h-2 bg-gray-400 mx-auto "></div>
       <app-radar></app-radar>
     </div>
     <div class="row-span-2 col-span-6">

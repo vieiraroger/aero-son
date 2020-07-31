@@ -1,10 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { PositionPlanesService } from '../services/position-planes.service';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-radar',
   templateUrl: './radar.component.html',
-  styleUrls: ['./radar.component.scss']
+  styleUrls: ['./radar.component.scss'],
+  animations: [
+    trigger('changeDivSize', [
+      state('initial', style({
+        borderRadius: '600px'
+      })),
+      state('final', style({
+        borderRadius: '00px'
+      })),
+      transition('initial=>final', animate('1000ms')),
+      transition('final=>initial', animate('1000ms'))
+    ]
+    ),
+    trigger('changeDivSize', [
+      state('initial', style({
+        borderRadius: '600px'
+      })),
+      state('final', style({
+        borderRadius: '00px'
+      })),
+      transition('initial=>final', animate('1000ms')),
+      transition('final=>initial', animate('1000ms'))
+    ]
+    ),
+  ]
 })
 export class RadarComponent implements OnInit {
   public array = [0,1,2,3,4,5,6,7,8,9];
@@ -12,6 +37,16 @@ export class RadarComponent implements OnInit {
   constructor(
     private positionPlane: PositionPlanesService
   ) { }
+
+
+
+  planeState() {
+    // this.currentState = this.currentState === 'initial' ? 'final' : 'initial';
+  }
+
+  radarState() {
+    return this.positionPlane.getRadarState();
+  }
 
   ngOnInit(): void {
   }
@@ -39,6 +74,12 @@ export class RadarComponent implements OnInit {
   checkPlane(plane) {
     return this.positionPlane.checkIsSelected(plane);
   }
+
+  deletePlane(plane) {
+    this.positionPlane.deletePlane(plane);
+  }
+
+
 
 
 }

@@ -1,44 +1,52 @@
-<div class="border-solid border-white border-4 rounded-md h-full p-2">
-  <div class="grid grid-cols-12 col-gap-4  p-2 text-white text-center font-bold">
-
-
-    <div class="col-span-12 grid grid-cols-12 col-gap-4 p-1 border-2 border-white bg-white text-gray-900">
+<div class="border-solid border-white border-4 rounded-md h-full  overflow-y-scroll bg-gray-900 z-50">
+  <div class="sticky top-0 grid grid-cols-12 col-gap-4 bg-gray-900 z-50  p-2 text-white text-center font-bold overflow-y-scroll">
+    <div class="sticky top-0 col-span-12 grid grid-cols-12 col-gap-4 p-1 border-2 rounded-sm text-white bg-blue-600 overflow-y-scroll">
       <div class="col-span-1">#</div>
       <div class="col-span-1">X</div>
       <div class="col-span-1">Y</div>
-      <div class="col-span-2">Raio</div>
+      <div class="col-span-1">Raio</div>
       <div class="col-span-2">Ângulo</div>
       <div class="col-span-3">Velocidade</div>
       <div class="col-span-2">Direção</div>
+      <div class="col-span-1">
+      </div>
     </div>
+  </div>
+  <div class="grid grid-cols-12 col-gap-4  p-2 text-white text-center font-bold overflow-y-scroll">
 
     <ng-container *ngFor="let plane of planes()">
       <ng-container *ngIf="!checkPlane(plane)">
         <div (click)="selectPlane(plane)"
-          class="col-span-12 grid grid-cols-12 col-gap-4 p-1 cursor-pointer border-2 border-white hover:bg-white hover:text-gray-900">
+          class="overflow-y-scroll col-span-12 grid grid-cols-12 col-gap-4 p-1 cursor-pointer border-2 border-white hover:bg-white hover:bg-opacity-25">
           <div class="col-span-1">
             <img class="mx-auto" src="../../assets/airplane.png" />
           </div>
           <div class="col-span-1 ">{{plane.x | number: '.0-2'}}</div>
           <div class="col-span-1 ">{{plane.y | number: '.0-2'}}</div>
-          <div class="col-span-2 ">{{plane.radius | number: '.0-2'}}</div>
+          <div class="col-span-1 ">{{plane.radius | number: '.0-2'}}</div>
           <div class="col-span-2 ">{{plane.angle | number: '.0-2'}}</div>
           <div class="col-span-3 ">{{plane.velocity | number: '.0-2'}}</div>
           <div class="col-span-2 ">{{plane.direction | number: '.0-2'}}</div>
+          <div class="col-span-1">
+            <img (click)="deletePlane(plane)" class="mx-auto" src="../../assets/trash.png" />
+          </div>
         </div>
       </ng-container>
       <ng-container *ngIf="checkPlane(plane)">
         <div (click)="unselectPlane(plane)"
-          class="col-span-12 grid grid-cols-12 col-gap-4  p-1 cursor-pointer border-2 border-white bg-blue-600">
+          class="overflow-y-scroll col-span-12 grid grid-cols-12 col-gap-4  p-1 cursor-pointer border-2 border-white bg-white bg-opacity-50 text-white">
           <div class="col-span-1">
             <img class="mx-auto" src="../../assets/airplane.png" />
           </div>
           <div class="col-span-1 ">{{plane.x | number: '.0-2'}}</div>
           <div class="col-span-1 ">{{plane.y | number: '.0-2'}}</div>
-          <div class="col-span-2 ">{{plane.radius | number: '.0-2'}}</div>
+          <div class="col-span-1 ">{{plane.radius | number: '.0-2'}}</div>
           <div class="col-span-2 ">{{plane.angle | number: '.0-2'}}</div>
           <div class="col-span-3 ">{{plane.velocity | number: '.0-2'}}</div>
           <div class="col-span-2 ">{{plane.direction | number: '.0-2'}}</div>
+          <div class="col-span-1">
+            <img (click)="deletePlane(plane)" class="mx-auto" src="../../assets/trash.png" />
+          </div>
         </div>
       </ng-container>
     </ng-container>

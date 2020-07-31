@@ -12,6 +12,8 @@ import { DataGridComponent } from './data-grid/data-grid.component';
 import { ReportComponent } from './report/report.component';
 import { ServicesModule } from './services/services.module';
 import { FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,13 +24,17 @@ import { FormsModule } from '@angular/forms';
     TrackingFunctionComponent,
     RadarComponent,
     DataGridComponent,
-    ReportComponent
+    ReportComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ServicesModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 2000,
+    }) // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent]

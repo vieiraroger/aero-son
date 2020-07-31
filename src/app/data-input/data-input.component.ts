@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PositionPlanesService } from '../services/position-planes.service';
 import { LogicService } from '../services/logic.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-data-input',
@@ -9,11 +10,11 @@ import { LogicService } from '../services/logic.service';
 })
 export class DataInputComponent implements OnInit {
 
-  constructor(private radar: PositionPlanesService, private calc: LogicService) { }
+  constructor(private radar: PositionPlanesService, private calc: LogicService, private toaster: ToastrService) { }
 
   ngOnInit(): void {
   }
-  
+
   x: number;
   y: number;
   radius: number;
@@ -23,18 +24,18 @@ export class DataInputComponent implements OnInit {
 
   insertAirplane() {
     if (!this.x || !this.y){
-      return;      
+      return;
     }
 
-    this.direction = this.calc.to_360_scale(this.direction);    
+    this.direction = this.calc.to_360_scale(this.direction);
 
-    let plane = 
+    let plane =
       {
-        id: 0, 
-        x: 0, 
-        y: 0, 
+        id: 0,
+        x: 0,
+        y: 0,
         radius: 0,
-        angle: 0,        
+        angle: 0,
         velocity: 0,
         direction: 0
       };
@@ -46,10 +47,14 @@ export class DataInputComponent implements OnInit {
     plane.direction = this.direction == null ? 0 : this.direction;
     plane.velocity = this.velocity == null ? 0 : this.velocity;
 
-    
 
-    
-    this.radar.addPlane(plane);
+
+    if (plane.x > 4.7 || plane.x > 4.7 ) {
+      this.toaster.error('Avião posicionado fora do alcance', 'Erro!')
+    } else {
+      this.radar.addPlane(plane);
+    }
+
 
     this.x = null;
     this.y = null;
@@ -57,7 +62,7 @@ export class DataInputComponent implements OnInit {
     this.angle = null;
     this.velocity = null;
     this.direction = null;
-    
+
 
   }
 

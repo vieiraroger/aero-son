@@ -1,4 +1,4 @@
-<div class="border-solid border-gray-400 border-8 rounded-md" style="width: 605px; border-radius: 605px; background-color: #008500;" >
+<div class="border-solid border-gray-400 border-8 rounded-md"  [@changeDivSize]=radarState() style="width: 605px; border-radius: 605px; background-color: #008500; z-index: 999999999 !important;" >
 
   <div class="relative" style="width: 600px; height: 600px; ">
     <div class="absolute grid grid-cols-10 w-full text-center" style="width: 600px;">
@@ -29,7 +29,7 @@
 
     <ng-container *ngFor="let plane of planes()">
 
-      <div  style="position: absolute; top: {{fixY(plane.y)}}px; left: {{fixX(plane.x)}}px;" class="ping">
+      <div   style="position: absolute; top: {{fixY(plane.y)}}px; left: {{fixX(plane.x)}}px;">
         <img *ngIf="!checkPlane(plane)" (click)="selectPlane(plane)" class="cursor-pointer "  style=" width: 30px; height: 30px;  transform: rotate(-{{plane?.direction}}deg);" src="../../assets/airplane.png"/>
         <img *ngIf="checkPlane(plane)" (click)="selectPlane(plane)" class="cursor-pointer border-white border-2 rounded-lg"  style=" width: 30px; height: 30px;  transform: rotate(-{{plane?.direction}}deg);" src="../../assets/airplane.png"/>
       </div>

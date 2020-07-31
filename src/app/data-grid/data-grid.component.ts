@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PositionPlanesService } from '../services/position-planes.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-data-grid',
@@ -11,7 +12,8 @@ export class DataGridComponent implements OnInit {
   public selectedPlanes;
 
   constructor(
-    private positionPlanes: PositionPlanesService
+    private positionPlanes: PositionPlanesService,
+    private toast: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -24,7 +26,7 @@ export class DataGridComponent implements OnInit {
   checkPlane(plane) {
     return this.positionPlanes.checkIsSelected(plane);
   }
-  
+
 
   planes() {
     return this.positionPlanes.getPlanes();
@@ -32,10 +34,17 @@ export class DataGridComponent implements OnInit {
 
   selectPlane(plane) {
     this.positionPlanes.selectPlane(plane);
+
   }
 
   unselectPlane(plane) {
     this.positionPlanes.unselectPlane(plane);
+  }
+
+  deletePlane(plane) {
+    this.positionPlanes.deletePlane(plane);
+    this.toast.success('Avião Excluído', 'Sucesso!');
+
   }
 
 }
