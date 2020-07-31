@@ -23,7 +23,7 @@ export class DataInputComponent implements OnInit {
   direction: number;
 
   insertAirplane() {
-    if (!this.x || !this.y){
+    if (this.x == null || this.y == null){
       return;
     }
 
@@ -67,7 +67,7 @@ export class DataInputComponent implements OnInit {
   }
 
   toCartesian (){
-    if(!this.radius || !this.angle){
+    if(this.radius == null || this.angle == null){
       return;
     }
 

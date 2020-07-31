@@ -23,9 +23,9 @@ export class TransformationFunctionComponent implements OnInit {
   angle: number;
 
   translate (){
-    if(!this.xMove || !this.yMove || this.PositionPlanes.getSelectedPlanes().length == 0){
+    if(this.xMove == null || this.yMove == null || this.PositionPlanes.getSelectedPlanes().length == 0){
       return;
-    }    
+    }
 
     let Planes = this.Logic.move(this.PositionPlanes.getSelectedPlanes(), this.xMove, this.yMove);
 
@@ -36,13 +36,13 @@ export class TransformationFunctionComponent implements OnInit {
 
     this.PositionPlanes.clearSelectedPlanes();
     this.yMove = null;
-    this.xMove = null;    
+    this.xMove = null;
   }
 
   stagger (){
-    if(!this.xStagger || !this.yStagger || this.PositionPlanes.getSelectedPlanes().length == 0){
+    if(this.xStagger == null || this.yStagger == null || this.PositionPlanes.getSelectedPlanes().length == 0){
       return;
-    }    
+    }
 
     let Planes = this.Logic.stagger_decimal(this.PositionPlanes.getSelectedPlanes(), this.xStagger, this.yStagger);
 
@@ -57,9 +57,9 @@ export class TransformationFunctionComponent implements OnInit {
   }
 
   rotate (){
-    if(!this.xRotate || !this.yRotate || !this.angle || this.PositionPlanes.getSelectedPlanes().length == 0){
+    if(this.xRotate == null || this.yRotate == null || this.angle == null || this.PositionPlanes.getSelectedPlanes().length == 0){
       return;
-    }    
+    }
 
     let Planes = this.Logic.rotate(this.PositionPlanes.getSelectedPlanes(), this.xRotate, this.yRotate, this.angle);
 
