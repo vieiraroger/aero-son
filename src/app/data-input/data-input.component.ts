@@ -47,14 +47,7 @@ export class DataInputComponent implements OnInit {
     plane.direction = this.direction == null ? 0 : this.direction;
     plane.velocity = this.velocity == null ? 0 : this.velocity;
 
-
-
-    if (plane.x > 4.7 || plane.x > 4.7 ) {
-      this.toaster.error('Avião posicionado fora do alcance', 'Erro!')
-    } else {
-      this.radar.addPlane(plane);
-    }
-
+    this.radar.addPlane(plane);
 
     this.x = null;
     this.y = null;

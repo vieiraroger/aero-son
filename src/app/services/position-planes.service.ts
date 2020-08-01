@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { decimalDigest } from '@angular/compiler/src/i18n/digest';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -8,27 +9,30 @@ import { decimalDigest } from '@angular/compiler/src/i18n/digest';
 export class PositionPlanesService {
 
   private planes = [
-    
+
   ];
 
   private selectedPlanes = [
-    
+
   ];
 
-  private tracking = [    
+  private tracking = [
 
   ];
 
   private radarState = 'initial';
 
 
-  constructor() { }
+  constructor(private toaster: ToastrService) { }
 
   public getPlanes() {
     return this.planes;
   }
 
   public addPlane(plane) {
+    if (!this.isValidPlane(plane)){
+      return;
+    }
     plane.id = this.planes.length + 1;
     this.planes.push(plane);
   }
@@ -68,6 +72,15 @@ export class PositionPlanesService {
     }
   }
 
+  public isValidPlane (plane){
+    if (plane.x > 4.7 || plane.x < -4.7 || plane.y > 4.7 || plane.y < -4.7) {
+      this.toaster.error('Avião posicionado fora do alcance', 'Erro!');
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   public getRadarState() {
     return this.radarState;
   }
@@ -76,7 +89,7 @@ export class PositionPlanesService {
     this.radarState = state;
   }
 
-  public addTracking (tracking){    
+  public addTracking (tracking){
     this.tracking.push(tracking);
     console.log(this.tracking);
   }
