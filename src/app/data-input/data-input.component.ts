@@ -37,7 +37,8 @@ export class DataInputComponent implements OnInit {
         radius: 0,
         angle: 0,
         velocity: 0,
-        direction: 0
+        direction: 0,
+        color: ""
       };
 
     plane.x = this.x == null ? 0 : this.x;
@@ -46,6 +47,7 @@ export class DataInputComponent implements OnInit {
     plane.angle = this.angle == null ? 0 : this.angle;
     plane.direction = this.direction == null ? 0 : this.direction;
     plane.velocity = this.velocity == null ? 0 : this.velocity;
+    plane.color = this.getRandomColor();
 
     this.radar.addPlane(plane);
 
@@ -57,6 +59,15 @@ export class DataInputComponent implements OnInit {
     this.direction = null;
 
 
+  }
+
+  getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
   }
 
   toCartesian (){

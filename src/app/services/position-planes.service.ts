@@ -90,7 +90,7 @@ export class PositionPlanesService {
   }
 
   public addTracking (tracking){
-    this.tracking.push(tracking);
+    this.tracking = [...tracking];
     console.log(this.tracking);
   }
 
