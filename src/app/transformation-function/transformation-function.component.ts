@@ -31,7 +31,7 @@ export class TransformationFunctionComponent implements OnInit {
 
 
     for(let plane of Planes){
-      this.PositionPlanes.editPlane(plane);
+      this.PositionPlanes.editPlane(JSON.parse(JSON.stringify(plane)));
     }
 
     this.PositionPlanes.clearSelectedPlanes();
@@ -44,7 +44,7 @@ export class TransformationFunctionComponent implements OnInit {
       return;
     }
 
-    let Planes = this.Logic.stagger_decimal(this.PositionPlanes.getSelectedPlanes(), this.xStagger, this.yStagger);
+    let Planes = JSON.parse(JSON.stringify(this.Logic.stagger_decimal(this.PositionPlanes.getSelectedPlanes(), this.xStagger, this.yStagger)));
 
 
     for(let plane of Planes){
@@ -61,7 +61,9 @@ export class TransformationFunctionComponent implements OnInit {
       return;
     }
 
-    let Planes = this.Logic.rotate(this.PositionPlanes.getSelectedPlanes(), this.xRotate, this.yRotate, this.angle);
+    let selectedPlanes = this.PositionPlanes.getSelectedPlanes();
+
+    let Planes = JSON.parse(JSON.stringify(this.Logic.rotate(selectedPlanes, this.angle, this.xRotate, this.yRotate)));
 
 
     for(let plane of Planes){

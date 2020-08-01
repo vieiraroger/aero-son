@@ -12,13 +12,13 @@ export class ReportComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   tracking (){
     return this.PositionPlanes.getTracking();
   }
 
   isArray(isvar){
-    if (isvar.lenght == 1) {
+    if (isvar.lenght <= 1) {
       console.log(false);
       return false;
     }else {

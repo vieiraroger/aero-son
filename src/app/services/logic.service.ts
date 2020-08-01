@@ -31,9 +31,12 @@ export class LogicService {
 
   rotate(planes, angle, x_origin, y_origin) {
     let result_planes = []
-    let degrees = angle * Math.PI / 180
+    let degrees = angle / 180
     let cos = Math.cos(degrees)
     let sin = Math.sin(degrees)
+
+    console.log(planes);
+    console.log(angle);
 
     for(let i=0;i<planes.length;i++) {
       let plane = planes[i]
@@ -103,15 +106,15 @@ export class LogicService {
 
   calculated_finish_point(plane, time) {
     let x,y;
-  
+
     let distance = time * plane.velocity
     let degrees = plane.direction * Math.PI / 180
     x = plane.x + distance * Math.sin(degrees)
     y = plane.y + distance * Math.cos(degrees)
-  
+
     return {"x": x, "y": y}
   }
-  
+
   calculate_f_x(p1, p2) {
     let a = (p1.y - p2.y)/(p1.x - p2.x)
     console.log(p1, p2)
@@ -136,18 +139,18 @@ export class LogicService {
 
   calculate_timming(p1, p2, velocity) {
       /*
-        S = So + Vt 
+        S = So + Vt
         S - So = Vt
         Delta(S)/V = t
       */
     return this.distance_bettewen_two_points(p1.x, p1.y, p2.x, p2.y)/velocity
   }
-  
+
   planes_in_collision_route(planes, minimum_time) {
     let collision_planes = []
     for(let i=0;i<planes.length;i++) {
       let plane_i = planes[i]
-  
+
       let pi1 = [plane_i.x, plane_i.y]
       let pi2 = this.calculated_finish_point(plane_i, minimum_time)
       console.log(pi1, pi2)
@@ -157,7 +160,7 @@ export class LogicService {
         let pj1 = [plane_j.x, plane_j.y]
         let pj2 = this.calculated_finish_point(plane_j, minimum_time)
         console.log(pj1, pj2)
-  
+
 
         let intersection_point = this.calculate_intersection_point(pi1, pi2, pj1, pj2)
         console.log(intersection_point)
@@ -166,7 +169,7 @@ export class LogicService {
         let t2 = this.calculate_timming(pj1, intersection_point, plane_j.velocity)
 
         console.log(t1, t2)
-        
+
         if(t1 == t2) {
           //Verificar se o negocio ta certo memo
           collision_planes.push({"plane": [plane_i, plane_j], "distance": t1})

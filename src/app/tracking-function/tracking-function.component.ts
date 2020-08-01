@@ -54,7 +54,7 @@ export class TrackingFunctionComponent implements OnInit {
     }
     let distances = this.logic.planes_in_collision_route(selectedPlanes, this.time_to_colision );
 
-    console.log(distances);
+    this.PositionPlanes.addTracking(distances);
 
     this.time_to_colision = null;
     this.PositionPlanes.clearSelectedPlanes();
