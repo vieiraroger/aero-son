@@ -28,7 +28,7 @@ export class TrackingFunctionComponent implements OnInit {
 
     let distances = this.logic.planes_closest_to_airport(this.airport, this.PositionPlanes.getPlanes(), this.distan_airport );
 
-    console.log(distances);
+    this.PositionPlanes.addTracking(distances);
 
     this.distan_airport = null;
 
@@ -40,7 +40,7 @@ export class TrackingFunctionComponent implements OnInit {
 
     let distances = this.logic.planes_closest_to_planes(this.PositionPlanes.getPlanes(), this.distan_nearly );
 
-    console.log(distances);
+    this.PositionPlanes.addTracking(distances);
 
     this.distan_nearly = null;
 

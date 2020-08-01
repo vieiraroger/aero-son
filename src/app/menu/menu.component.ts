@@ -40,7 +40,6 @@ export class MenuComponent implements OnInit {
   }
 
   getState() {
-    console.log(this.positionPlane.getRadarState())
     return this.positionPlane.getRadarState();
   }
 

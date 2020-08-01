@@ -4,17 +4,29 @@
       <div class="col-span-12">Tabela de relatórios</div>
     </div>
   </div>
-  <div class="grid grid-cols-12 col-gap-4  p-2 text-white text-center font-bold overflow-y-scroll">
-      <ng-container >
-        <div
-          class="overflow-y-scroll col-span-12 grid grid-cols-12 col-gap-4  p-1 cursor-pointer border-2 border-white  text-white">
-          <div class="col-span-1 ">tfwdtygy8ew</div>
-        </div>
-      </ng-container>
+  <ng-container *ngFor="let tracking of tracking()">
+    <ng-container *ngFor="let trackings of tracking">
+      <div class="grid grid-cols-12 col-gap-4  p-2 text-white text-center font-bold overflow-y-scroll">
+          <ng-container >            
+            <div
+              class="overflow-y-scroll col-span-12 grid grid-cols-12 col-gap-4  p-1 cursor-pointer border-2 border-white  text-white">
+              <div class="col-span-1 ">Distância: {{trackings.distance}}</div>
+              <ng-container *ngIf="isArray(trackings.plane)">
+              <ng-container *ngFor="let plane of trackings.plane">
+                <div class="col-span-1 ">Avião: {{plane.id}}</div>
+              </ng-container>
+            </ng-container>
+            <ng-container *ngIf="!isArray(trackings.plane)">              
+                <div class="col-span-1 ">Avião: {{trackings.plane.id}}</div>
+            </ng-container>
+            </div>
+          </ng-container>        
 
 
 
-  </div>
+      </div>
+  </ng-container>
+</ng-container>
 
   <div class="grid grid-col-7 grid-flow-col gap-4 p-2 text-white text-center">
 

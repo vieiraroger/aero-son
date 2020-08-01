@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { decimalDigest } from '@angular/compiler/src/i18n/digest';
 
 @Injectable({
   providedIn: 'root'
@@ -7,45 +8,15 @@ import { Injectable } from '@angular/core';
 export class PositionPlanesService {
 
   private planes = [
-    {
-      id:  1,
-      x: 1,
-      y: 1,
-      radius: 0,
-      angle: 0,
-      velocity: 10,
-      direction: 90
-    },
-    {
-      id: 2,
-      x: 2,
-      y: 2,
-      radius: 0,
-      angle: 0,
-      velocity: 100,
-      direction: 90
-    },
-    {
-      id: 3,
-      x: 3,
-      y: 3,
-      radius: 0,
-      angle: 0,
-      velocity: 110,
-      direction: 180
-    }
+    
   ];
 
   private selectedPlanes = [
-    {
-      id: 1,
-      x: 1,
-      y: 1,
-      radius: 0,
-      angle: 0,
-      velocity: 10,
-      direction: 90
-    }
+    
+  ];
+
+  private tracking = [    
+
   ];
 
   private radarState = 'initial';
@@ -105,5 +76,12 @@ export class PositionPlanesService {
     this.radarState = state;
   }
 
+  public addTracking (tracking){    
+    this.tracking.push(tracking);
+    console.log(this.tracking);
+  }
 
+  public getTracking (){
+    return this.tracking;
+  }
 }

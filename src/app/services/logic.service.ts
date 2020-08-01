@@ -91,7 +91,7 @@ export class LogicService {
         let plane_j = planes[j]
         let distance = this.distance_bettewen_two_points(plane_i.x, plane_i.y, plane_j.x, plane_j.y)
         if(distance <= minimun_distance) {
-          let closest_plane = {"planes": [plane_i, plane_j], "distance": distance}
+          let closest_plane = {"plane": [plane_i, plane_j], "distance": distance}
           closest_planes.push(closest_plane)
         }
       }
